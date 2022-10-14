@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class alistirmalar {
     public static void main(String[] args) {
 
-        double tutar, kdvTutar, kdvliTutar;
+        double tutar, kdvOran,kdvTutar, kdvliTutar;
 
 
 
@@ -13,17 +13,18 @@ public class alistirmalar {
 
 
         if (tutar>=0 && tutar<=1000)  {
-                kdvTutar = (tutar*0.18);
-                kdvliTutar = kdvTutar + tutar;
+                kdvOran = (tutar*0.18)/100;
         }
         else {
-            kdvTutar = (tutar * 0.8);
-                kdvliTutar = kdvTutar + tutar;
+            kdvOran = (tutar * 0.8)/100;
         }
 
+        kdvliTutar = kdvOran + tutar;
+        kdvTutar = kdvliTutar - tutar;
 
 
         System.out.println("KDV'siz Tutar : " + tutar);
+        System.out.println("KDV Tutarı : " + kdvTutar);
         System.out.println("KDV'li Tutar : " + kdvliTutar);
 
     }
